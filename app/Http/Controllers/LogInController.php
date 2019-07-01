@@ -21,7 +21,12 @@ class LogInController extends Controller
      		// 	echo Auth::user()->full_name." voi id ". Auth::id();
      		// 	$user=Auth::user();
      		// 	echo $user->full_name;
-     		return redirect('HomeMA');
+           
+            if((Auth::user()->chucnang==2)||(Auth::user()->chucnang==3))
+                return redirect('Admin');
+             // if(Auth::user()->chucnang==1)
+            else
+                 return redirect('HomeMA');
      }
      	else
     		return redirect('LogIn');

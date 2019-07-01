@@ -19,6 +19,11 @@
                                 <th>Password</th>
                                 <th>Phone</th>
                                 <th>Address</th>
+                                @if(Auth::check())
+                                    @if(Auth::user()->chucnang==2)
+                                        <th>Authorization</th>
+                                    @endif
+                                @endif
                                 <th>Delete</th>
                                 <th>Edit</th>
                             </tr>
@@ -32,6 +37,11 @@
                                 <td>{{$U->password}}</td>
                                  <td>{{$U->phone}}</td>
                                 <td>{{$U->address}}</td>
+                                  @if(Auth::check())
+                                    @if((Auth::user()->chucnang==2)||(Auth::user()->chucnang==3))
+                                        <td>{{$U->chucnang}}</td>
+                                    @endif
+                                @endif
                                 <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="Admin/Users/Xoa/{{$U->id}}"> Delete</a></td>
                                 <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="Admin/Users/Sua/{{$U->id}}">Edit</a></td>
                             </tr>

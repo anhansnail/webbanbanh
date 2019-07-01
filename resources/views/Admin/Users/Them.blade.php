@@ -41,11 +41,23 @@
                             <div class="form-group">
                                 <label>User Level</label>
                                 <label class="radio-inline">
-                                    <input name="rdoLevel" value="1" checked="" type="radio">Admin
+                                    <!-- thêm thành viên value = 1 -->
+                                    <input name="rdoLevel" value="1" checked="" type="radio">Member
                                 </label>
+                                <!-- chỉ khi đăng nhập rồi mới kiểm tra được -->
+                                @if(Auth::check())
+                               @if((Auth::user()->chucnang==3))
                                 <label class="radio-inline">
-                                    <input name="rdoLevel" value="2" type="radio">Member
+                                    <!-- thêm admin quản lí value =2 -->
+                                    <input name="rdoLevel" value="2" type="radio">Admin
                                 </label>
+                               <!--  nếu mà là admin chủ với cột chức năng sẽ có giá trị là 3 , và chỉ admin chủ mới có thể thêm admin chủ ,admin bthg chỉ có thể thêm user-->
+                                
+                                    <label class="radio-inline">
+                                        <input name="rdoLevel" value="3" type="radio">Member
+                                    </label>
+                                @endif
+                                @endif
                             </div>
                             <button type="submit" class="btn btn-default">User Add</button>
                             <button type="reset" class="btn btn-default">Reset</button>

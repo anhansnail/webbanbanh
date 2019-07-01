@@ -16,6 +16,7 @@ Route::get('/', function () {
 });
 Route::get('Admin',function(){
 	return view('Admin/Index/IndexAdmin');
+	// return redirect('Admin/Users/DanhSach');
 });
 Route::group(['prefix'=>'Admin'],function(){
 

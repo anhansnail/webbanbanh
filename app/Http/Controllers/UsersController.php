@@ -25,6 +25,7 @@ class UsersController extends Controller
     	$Users->password=bcrypt($request->repassword) ;
     	$Users->phone= $request->phone;
     	$Users->address= $request->address;
+        $Users->chucnang=$request->rdoLevel;
 		// lưu user
     	$Users->save();
 
